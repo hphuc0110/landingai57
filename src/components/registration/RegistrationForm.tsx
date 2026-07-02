@@ -1,4 +1,5 @@
 import { useState, type FormEvent, type ReactNode } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function FieldLabel({ children, required }: { children: ReactNode; required?: boolean }) {
   return (
@@ -33,8 +34,9 @@ const initialForm: FormData = {
 const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL
 
 export default function RegistrationForm({ inModal = false }: { inModal?: boolean }) {
+  const navigate = useNavigate()
   const [form, setForm] = useState<FormData>(initialForm)
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
 
   const update = (field: keyof FormData, value: string) => {
@@ -92,8 +94,7 @@ export default function RegistrationForm({ inModal = false }: { inModal?: boolea
         throw new Error(result.message || 'Gửi thất bại')
       }
 
-      setStatus('success')
-      setForm(initialForm)
+      navigate('/cam-on')
     } catch (error) {
       setStatus('error')
       setErrorMsg(
@@ -214,11 +215,6 @@ export default function RegistrationForm({ inModal = false }: { inModal?: boolea
           {status === 'loading' ? 'Đang gửi...' : 'Gửi đăng ký tư vấn'}
         </button>
 
-        {status === 'success' && (
-          <p className="mt-4 text-center text-sm font-medium text-green-600">
-            Đăng ký thành công! Chúng tôi sẽ liên hệ trong vòng 24h.
-          </p>
-        )}
         {status === 'error' && (
           <p className="mt-4 text-center text-sm text-red-500">{errorMsg}</p>
         )}

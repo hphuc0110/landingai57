@@ -11,19 +11,19 @@ export const partnerBrands = [
   {
     key: 'hle' as const,
     name: 'HỒNG LĨNH EDUCATION',
-    image: '/baochung/mou.png',
+    image: '/baochung/mou.jpg',
     imageAlt: 'Lễ ký kết hợp tác Hồng Lĩnh Education',
   },
   {
     key: 'hust' as const,
     name: 'ĐẠI HỌC BÁCH KHOA HÀ NỘI',
-    image: '/baochung/phatbieu.png',
+    image: '/why/kiket.png',
     imageAlt: 'Đại học Bách Khoa Hà Nội phát biểu tại sự kiện',
   },
   {
     key: 'nic' as const,
     name: 'TRUNG TÂM SÁNG TẠO ĐỔI MỚI QUỐC GIA',
-    image: '/baochung/motminh.png',
+    image: '/baochung/motminh.jpg',
     imageAlt: 'Trung tâm Đổi mới sáng tạo Quốc gia tại hội nghị',
   },
 ]

@@ -9,6 +9,7 @@ import Testimonials from './components/Testimonials'
 import VideoSection from './components/VideoSection'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import StickyRegisterBar from './components/StickyRegisterBar'
 import { RegistrationModalProvider } from './context/RegistrationModalContext'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         </main>
         <Footer />
       </div>
+      <StickyRegisterBar />
       <RegistrationModal />
     </RegistrationModalProvider>
   )
