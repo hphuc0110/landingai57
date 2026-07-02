@@ -128,7 +128,7 @@ export default function RegistrationForm({ inModal = false }: { inModal?: boolea
               <input
                 type="text"
                 className={inputClass}
-                placeholder="Nguyễn Văn A"
+                placeholder=""
                 value={form.studentName}
                 onChange={(e) => update('studentName', e.target.value)}
                 disabled={status === 'loading'}
@@ -139,7 +139,7 @@ export default function RegistrationForm({ inModal = false }: { inModal?: boolea
               <input
                 type="text"
                 className={inputClass}
-                placeholder="Nguyễn Văn B (phụ huynh)"
+                placeholder=""
                 value={form.guardianName}
                 onChange={(e) => update('guardianName', e.target.value)}
                 disabled={status === 'loading'}
@@ -152,7 +152,7 @@ export default function RegistrationForm({ inModal = false }: { inModal?: boolea
             <input
               type="tel"
               className={inputClass}
-              placeholder="09xx xxx xxx"
+              placeholder=""
               value={form.phone}
               onChange={(e) => update('phone', e.target.value)}
               disabled={status === 'loading'}
