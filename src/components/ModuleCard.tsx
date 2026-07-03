@@ -39,11 +39,11 @@ export default function ModuleCard({ module }: ModuleCardProps) {
         </div>
       </div>
 
-      <div className="absolute -bottom-4 left-1/2 w-[calc(100%-2rem)] max-w-xs -translate-x-1/2 sm:w-auto sm:max-w-none">
+      {/* <div className="absolute -bottom-4 left-1/2 w-[calc(100%-2rem)] max-w-xs -translate-x-1/2 sm:w-auto sm:max-w-none">
         <span className="inline-block w-full rounded-full bg-[#003399] px-4 py-2.5 text-center text-xs font-bold uppercase text-white shadow-lg sm:w-auto sm:whitespace-nowrap sm:px-8 sm:text-sm">
           Học phí: {module.price} đ
         </span>
-      </div>
+      </div> */}
     </div>
   )
 }
