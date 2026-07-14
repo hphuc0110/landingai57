@@ -1,6 +1,7 @@
 export { default as Header } from './Header'
 export { default as HeroSection } from './HeroSection'
 export { default as RegistrationSection } from './RegistrationSection'
+export { default as ExpertQuoteSection } from './ExpertQuoteSection'
 export { default as PartnersSection } from './PartnersSection'
 export { default as WhyAI57Section } from './WhyAI57Section'
 export { default as RoadmapSection } from './RoadmapSection'

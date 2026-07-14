@@ -1,5 +1,6 @@
 import CtaButton from '../CtaButton'
 import FeatureBadges from './FeatureBadges'
+import HeroOutcomes from './HeroOutcomes'
 
 export default function HeroContent() {
   return (
@@ -20,10 +21,20 @@ export default function HeroContent() {
         <span className="font-extrabold italic text-primary">KỸ SƯ AI</span> cho học sinh cấp 2 &amp; 3
       </p>
 
-      <p className="mt-5 max-w-lg text-sm leading-relaxed text-gray-600 sm:mt-6 sm:text-base">
-        Xây nền tảng AI bài bản theo chuẩn hệ sinh thái NVIDIA: học thật, làm sản phẩm thật, có
-        portfolio thật – không chỉ &lsquo;biết dùng&rsquo; AI mà hiểu và tự xây hệ thống AI.
-      </p>
+      <div className="mt-6 max-w-xl sm:mt-8">
+        <p className="mt-3 text-sm leading-relaxed text-gray-600 sm:text-base">
+          AI57 được thiết kế dành riêng cho những học sinh có định hướng theo đuổi Công nghệ thông
+          tin, Trí tuệ nhân tạo (AI), Khoa học dữ liệu và các ngành công nghệ trong tương lai.
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-gray-600 sm:text-base">
+          Giáo trình AI57 được tinh chỉnh từ hệ sinh thái của NVIDIA cùng với sự cố vấn và tham gia
+          chuyên môn của các giảng viên, chuyên gia trong lĩnh vực Công nghệ thông tin và Trí tuệ
+          nhân tạo đến từ Đại học Bách Khoa Hà Nội, kết hợp cùng đội ngũ kỹ sư AI đang làm việc trong
+          doanh nghiệp lớn.
+        </p>
+      </div>
+
+      <HeroOutcomes />
 
       <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
         <CtaButton

@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
 import RegistrationSection from './components/RegistrationSection'
+import ExpertQuoteSection from './components/ExpertQuoteSection'
 import RegistrationModal from './components/registration/RegistrationModal'
 import PartnersSection from './components/PartnersSection'
 import WhyAI57Section from './components/WhyAI57Section'
@@ -20,6 +21,7 @@ function App() {
         <main>
           <HeroSection />
           <RegistrationSection />
+          <ExpertQuoteSection />
           <PartnersSection />
           <WhyAI57Section />
           <RoadmapSection />

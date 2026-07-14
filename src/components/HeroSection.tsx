@@ -63,9 +63,11 @@ export default function HeroSection() {
       <CircuitPattern className="pointer-events-none absolute -left-4 top-12 h-52 w-52 text-primary/25 md:left-4 md:h-64 md:w-64" />
       <NeuralNetworkPattern className="pointer-events-none absolute -right-4 top-16 h-52 w-52 text-primary/20 md:right-4 md:h-64 md:w-64" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 sm:gap-10 md:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
+      <div className="relative mx-auto grid max-w-7xl items-start gap-8 px-4 sm:gap-10 md:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
         <HeroContent />
-        <HeroVisual />
+        <div className="lg:sticky lg:top-28">
+          <HeroVisual />
+        </div>
       </div>
     </section>
   )
