@@ -1,39 +1,32 @@
-import Header from './components/Header'
-import HeroSection from './components/HeroSection'
-import RegistrationSection from './components/RegistrationSection'
-import ExpertQuoteSection from './components/ExpertQuoteSection'
-import RegistrationModal from './components/registration/RegistrationModal'
-import PartnersSection from './components/PartnersSection'
-import WhyAI57Section from './components/WhyAI57Section'
-import RoadmapSection from './components/RoadmapSection'
-import Testimonials from './components/Testimonials'
-import VideoSection from './components/VideoSection'
-import FAQ from './components/FAQ'
-import Footer from './components/Footer'
-import StickyRegisterBar from './components/StickyRegisterBar'
-import { RegistrationModalProvider } from './context/RegistrationModalContext'
+import Navbar from './components/layout/Navbar'
+import Footer from './components/layout/Footer'
+import HeroSection from './components/sections/HeroSection'
+import VisionBanner from './components/sections/VisionBanner'
+import ExpertQuoteSection from './components/sections/ExpertQuoteSection'
+import WhyChooseSection from './components/sections/WhyChooseSection'
+import ProgramSection from './components/sections/ProgramSection'
+import OfferCountdownSection from './components/sections/OfferCountdownSection'
+import ExpertsSection from './components/sections/ExpertsSection'
+import FAQSection from './components/sections/FAQSection'
+import RegistrationSection from './components/sections/RegistrationSection'
 
 function App() {
   return (
-    <RegistrationModalProvider>
-      <div className="min-h-screen overflow-x-hidden">
-        <Header />
-        <main>
-          <HeroSection />
-          <RegistrationSection />
-          <ExpertQuoteSection />
-          <PartnersSection />
-          <WhyAI57Section />
-          <RoadmapSection />
-          <Testimonials />
-          <VideoSection />
-          <FAQ />
-        </main>
-        <Footer />
-      </div>
-      <StickyRegisterBar />
-      <RegistrationModal />
-    </RegistrationModalProvider>
+    <div className="min-h-screen overflow-x-hidden bg-white">
+      <Navbar />
+      <main>
+        <HeroSection />
+        <VisionBanner />
+        {/* <ExpertQuoteSection /> */}
+        <WhyChooseSection />
+        <ProgramSection />
+        <OfferCountdownSection />
+        {/* <ExpertsSection /> */}
+        <FAQSection />
+        <RegistrationSection />
+      </main>
+      <Footer />
+    </div>
   )
 }
 

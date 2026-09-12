@@ -1,24 +1,59 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: #0056d2;
-  --color-primary-dark: #003399;
-  --color-primary-light: #e6f0ff;
-  --color-accent: #ff8c00;
-  --color-card-start: #82c9f4;
-  --color-card-end: #4da8e1;
-  --color-hero-navy: #0f2d4a;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-brand: #1e5ff2;
+  --color-brand-dark: #1548c9;
+  --color-brand-deeper: #0b3db8;
+  --color-brand-soft: #e8f0fe;
+  --color-brand-tint: #eff6ff;
+  --color-brand-muted: #dbeafe;
+  --color-module-green: #16a34a;
+  --color-module-green-soft: #ecfdf5;
+  --color-module-purple: #6366f1;
+  --color-module-purple-soft: #eef2ff;
+  --color-text-heading: #0f172a;
+  --color-text-body: #4b5563;
+  --color-text-muted: #6b7280;
+  --color-footer: #0b3db8;
+  --font-sans: 'Be Vietnam Pro', system-ui, sans-serif;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply font-sans text-gray-800 antialiased;
-    background-color: #f0f8ff;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230056d2' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    @apply font-sans text-text-body antialiased;
+    background-color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img,
+  svg,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+
+  /* Avoid iOS zoom on focus for form controls under 16px */
+  @media (max-width: 639px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+    }
   }
 }
