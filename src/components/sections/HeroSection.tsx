@@ -1,15 +1,14 @@
 import Button from '../ui/Button'
 import Container from '../ui/Container'
-import VietnamNetworkGraphic from '../graphics/VietnamNetworkGraphic'
 
 export default function HeroSection() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-white pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-14 lg:pb-20"
+      className="relative overflow-hidden bg-white pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-14"
     >
-      <Container className="relative grid items-center gap-8 lg:grid-cols-2 lg:gap-8">
-        <div className="relative z-10 mx-auto w-full max-w-xl text-center lg:mx-0 lg:text-left">
+      <Container className="relative z-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-10 lg:min-h-[480px]">
+        <div className="mx-auto w-full max-w-xl text-center lg:mx-0 lg:py-12 lg:text-left">
           <h1 className="text-[1.65rem] font-extrabold leading-tight text-brand sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
             AI57 - Chương trình đào tạo kỹ sư AI toàn năng
           </h1>
@@ -40,18 +39,15 @@ export default function HeroSection() {
           </Button>
         </div>
 
-        <div className="pointer-events-none relative mx-auto h-44 w-full max-w-sm opacity-80 sm:h-56 lg:hidden">
-          <VietnamNetworkGraphic className="h-full w-full" />
-        </div>
-
-        <div className="pointer-events-none relative hidden min-h-[320px] lg:block">
-          <VietnamNetworkGraphic className="absolute inset-0 h-full w-full opacity-90" />
+        <div className="pointer-events-none relative mx-auto w-full max-w-[320px] sm:max-w-[320px] lg:max-w-[420px] lg:justify-self-end">
+          <img
+            src="/images/hero-map.png"
+            alt=""
+            aria-hidden="true"
+            className="hero-map-fade h-auto w-full object-contain"
+          />
         </div>
       </Container>
-
-      <div className="pointer-events-none absolute top-8 right-0 hidden h-[420px] w-[55%] opacity-40 lg:block">
-        <VietnamNetworkGraphic className="h-full w-full" />
-      </div>
     </section>
   )
 }

@@ -18,6 +18,22 @@
   --font-sans: 'Be Vietnam Pro', system-ui, sans-serif;
 }
 
+@layer utilities {
+  /* Soft-fade image edges into the page background */
+  .hero-map-fade {
+    -webkit-mask-image: radial-gradient(
+      ellipse 72% 68% at 50% 50%,
+      #000 42%,
+      transparent 78%
+    );
+    mask-image: radial-gradient(
+      ellipse 72% 68% at 50% 50%,
+      #000 42%,
+      transparent 78%
+    );
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
