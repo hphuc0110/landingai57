@@ -56,20 +56,24 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Button
-            variant="outline"
-            onClick={openRegistration}
-            className="hidden !px-4 !py-2 !text-xs lg:inline-flex"
-          >
-            Tư vấn miễn phí
-          </Button>
-          <Button
-            onClick={openRegistration}
-            className="!px-3 !py-2 !text-[11px] sm:!px-4 sm:!text-xs"
-          >
-            Đăng ký giữ chỗ
-          </Button>
+        <div className="flex shrink-0 items-center gap-2">
+          <div className="hidden items-center gap-2 md:flex">
+            <div className="hidden lg:block">
+              <Button
+                variant="outline"
+                onClick={openRegistration}
+                className="!px-4 !py-2 !text-xs whitespace-nowrap"
+              >
+                Tư vấn miễn phí
+              </Button>
+            </div>
+            <Button
+              onClick={openRegistration}
+              className="!px-4 !py-2 !text-xs whitespace-nowrap"
+            >
+              Đăng ký giữ chỗ
+            </Button>
+          </div>
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-700 md:hidden"
@@ -95,16 +99,27 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <button
-              type="button"
-              onClick={() => {
-                closeMenu()
-                openRegistration()
-              }}
-              className="mt-2 inline-flex w-full items-center justify-center rounded-lg border border-[#c5d4f5] bg-white px-5 py-3 text-sm font-bold uppercase tracking-wide text-brand"
-            >
-              Tư vấn miễn phí
-            </button>
+            <div className="mt-2 flex flex-col gap-2">
+              <Button
+                variant="outline"
+                onClick={() => {
+                  closeMenu()
+                  openRegistration()
+                }}
+                className="w-full !py-3"
+              >
+                Tư vấn miễn phí
+              </Button>
+              <Button
+                onClick={() => {
+                  closeMenu()
+                  openRegistration()
+                }}
+                className="w-full !py-3"
+              >
+                Đăng ký giữ chỗ
+              </Button>
+            </div>
           </Container>
         </div>
       )}
