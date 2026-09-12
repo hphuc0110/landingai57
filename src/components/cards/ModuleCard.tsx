@@ -1,4 +1,8 @@
-import type { ProgramModule, ModuleTheme } from '../../data/modules'
+import type {
+  ProgramModule,
+  ModuleTheme,
+  WorkshopItem,
+} from '../../data/modules'
 
 const themeStyles: Record<
   ModuleTheme,
@@ -70,20 +74,14 @@ export default function ModuleCard({ module }: Props) {
           </p>
         </div>
 
-        <div className="mt-4">
-          <p className={`text-sm font-bold ${t.accent}`}>Workshop</p>
-          <ul className="mt-2 space-y-1.5">
-            {module.workshops.map((item) => (
-              <li key={item.title} className="flex gap-2 text-sm leading-snug">
-                <span className={`mt-0.5 font-bold ${t.accent}`}>*</span>
-                <span>
-                  <span className={`font-bold ${t.accent}`}>{item.title}</span>
-                  <span className="text-text-body"> — {item.description}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {module.workshopGroups.map((group) => (
+          <WorkshopList
+            key={group.label}
+            label={group.label}
+            items={group.items}
+            accent={t.accent}
+          />
+        ))}
       </div>
 
       <div className={`${t.footer} px-4 py-3.5 sm:px-6 sm:py-4`}>
@@ -98,6 +96,33 @@ export default function ModuleCard({ module }: Props) {
         </div>
       </div>
     </article>
+  )
+}
+
+function WorkshopList({
+  label,
+  items,
+  accent,
+}: {
+  label: string
+  items: WorkshopItem[]
+  accent: string
+}) {
+  return (
+    <div className="mt-4">
+      <p className={`text-sm font-bold ${accent}`}>{label}</p>
+      <ul className="mt-2 space-y-1.5">
+        {items.map((item) => (
+          <li key={item.title} className="flex gap-2 text-sm leading-snug">
+            <span className={`mt-0.5 font-bold ${accent}`}>*</span>
+            <span>
+              <span className={`font-bold ${accent}`}>{item.title}</span>
+              <span className="text-text-body"> — {item.description}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 

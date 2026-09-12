@@ -2,8 +2,9 @@ import { useEffect, useMemo, useState } from 'react'
 import Badge from '../ui/Badge'
 import Button from '../ui/Button'
 import Container from '../ui/Container'
+import { useRegistrationModal } from '../../context/RegistrationModalContext'
 
-const TARGET = new Date('2026-09-26T00:00:00+07:00').getTime()
+const TARGET = new Date('2026-09-21T00:00:00+07:00').getTime()
 
 function getRemaining(now: number) {
   const diff = Math.max(0, TARGET - now)
@@ -21,6 +22,7 @@ function pad(n: number) {
 export default function OfferCountdownSection() {
   const [now, setNow] = useState(() => Date.now())
   const remaining = useMemo(() => getRemaining(now), [now])
+  const { openRegistration } = useRegistrationModal()
 
   useEffect(() => {
     const id = window.setInterval(() => setNow(Date.now()), 1000)
@@ -43,7 +45,7 @@ export default function OfferCountdownSection() {
           </Badge>
 
           <h2 className="mt-4 text-xl font-extrabold tracking-wide uppercase sm:mt-5 sm:text-3xl lg:text-4xl">
-            Khai giảng 26/09 — ưu đãi đăng ký sớm
+            Khai giảng 21/09 — ưu đãi đăng ký sớm
           </h2>
           <p className="mt-3 text-sm text-white/90 sm:text-base">
             Thời gian áp dụng chính sách ưu đãi giảm học phí đang đếm ngược:
@@ -86,7 +88,7 @@ export default function OfferCountdownSection() {
           </div>
 
           <Button
-            href="#dang-ky"
+            onClick={openRegistration}
             variant="white"
             className="mt-6 !w-full !rounded-xl !px-8 !py-3.5 !text-sm sm:mt-8 sm:!w-auto"
           >

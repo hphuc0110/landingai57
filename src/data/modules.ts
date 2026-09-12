@@ -3,6 +3,11 @@ export type WorkshopItem = {
   description: string
 }
 
+export type WorkshopGroup = {
+  label: string
+  items: WorkshopItem[]
+}
+
 export type ModuleTheme = 'blue' | 'green' | 'purple'
 
 export type ProgramModule = {
@@ -11,7 +16,7 @@ export type ProgramModule = {
   progress: string
   title: string
   theory: string
-  workshops: WorkshopItem[]
+  workshopGroups: WorkshopGroup[]
   output: string
   theme: ModuleTheme
 }
@@ -24,21 +29,26 @@ export const modules: ProgramModule[] = [
     title: 'AI FOUNDATIONS & GENERATIVE LITERACY',
     theory:
       'Lý thuyết (10 buổi): Từ bản đồ AI và lịch sử phát triển, nguyên lý LLMs, prompt engineering cơ bản đến nâng cao, GenAI ảnh & video, RAG/Study OS, Generative UI & AI Agent, kết thúc bằng đạo đức, pháp lý và an toàn AI.',
-    workshops: [
+    workshopGroups: [
       {
-        title: 'Prompt Lab – Hệ điều hành học tập cá nhân bằng AI',
-        description:
-          'Thực hành chuẩn hóa prompt, so sánh đa mô hình (ChatGPT, Claude, Gemini...), kỹ thuật nâng cao, xây "gia sư AI" trên tài liệu riêng, lắp ráp hệ thống quản lý học tập.',
-      },
-      {
-        title: 'AI Creative Studio – Sản xuất ảnh & video bằng GenAI',
-        description:
-          'Thử nghiệm text-to-image, thiết kế poster/bộ nhận diện, text-to-video, dựng storyboard & hậu kỳ, kiểm tra bản quyền.',
-      },
-      {
-        title: 'AI Builder – Generative UI, Tác tử & Dự án AI for Good',
-        description:
-          'Đặt vấn đề xã hội, sinh UI bằng Vercel v0, dựng workflow tự động no-code, sprint sản phẩm, thuyết trình bảo vệ.',
+        label: 'Workshop',
+        items: [
+          {
+            title: 'Prompt Lab – Hệ điều hành học tập cá nhân bằng AI',
+            description:
+              'Thực hành chuẩn hóa prompt, so sánh đa mô hình (ChatGPT, Claude, Gemini...), kỹ thuật nâng cao, xây "gia sư AI" trên tài liệu riêng, lắp ráp hệ thống quản lý học tập.',
+          },
+          {
+            title: 'AI Creative Studio – Sản xuất ảnh & video bằng GenAI',
+            description:
+              'Thử nghiệm text-to-image, thiết kế poster/bộ nhận diện, text-to-video, dựng storyboard & hậu kỳ, kiểm tra bản quyền.',
+          },
+          {
+            title: 'AI Builder – Generative UI, Tác tử & Dự án AI for Good',
+            description:
+              'Đặt vấn đề xã hội, sinh UI bằng Vercel v0, dựng workflow tự động no-code, sprint sản phẩm, thuyết trình bảo vệ.',
+          },
+        ],
       },
     ],
     output:
@@ -52,39 +62,50 @@ export const modules: ProgramModule[] = [
     title: 'PYTHON FOR DATA SCIENCE & MACHINE LEARNING FOUNDATIONS',
     theory:
       'Lý thuyết (10 buổi): Python nền tảng (Colab, cấu trúc dữ liệu, hàm), EDA/feature engineering, 3 loại học máy, các mô hình supervised (kNN, Regression, Tree, Ensemble), ML lifecycle & metrics, cross-validation, unsupervised (K-Means, PCA, anomaly), pipeline end-to-end & GPU/RAPIDS.',
-    workshops: [
+    workshopGroups: [
       {
-        title: 'Python & Data Science Foundations',
-        description: 'Colab, biến/cấu trúc dữ liệu, hàm, NumPy/pandas, EDA.',
+        label: 'Workshop cơ bản',
+        items: [
+          {
+            title: 'Python & Data Science Foundations',
+            description:
+              'Colab, biến/cấu trúc dữ liệu, hàm, NumPy/pandas, EDA.',
+          },
+          {
+            title: 'Machine Learning Core Models & Evaluation',
+            description:
+              'Problem framing, kNN/Naive Bayes, Regression, Tree/Ensemble, lifecycle, CV/ROC-AUC.',
+          },
+          {
+            title: 'Unsupervised, End-to-End ML & Scale',
+            description:
+              'K-Means/PCA, anomaly detection, pipeline hoàn chỉnh, tăng tốc GPU.',
+          },
+        ],
       },
       {
-        title: 'Machine Learning Core Models & Evaluation',
-        description:
-          'Problem framing, kNN/Naive Bayes, Regression, Tree/Ensemble, lifecycle, CV/ROC-AUC.',
-      },
-      {
-        title: 'Unsupervised, End-to-End ML & Scale',
-        description:
-          'K-Means/PCA, anomaly detection, pipeline hoàn chỉnh, tăng tốc GPU.',
-      },
-      {
-        title: 'Advanced Data Pipeline & Feature Engineering',
-        description:
-          'Data validation, feature engineering nâng cao, time-series, pipeline tái lập.',
-      },
-      {
-        title: 'Advanced Supervised Learning & Model Optimization',
-        description:
-          'Dữ liệu mất cân bằng, hyperparameter tuning, ensemble nâng cao, calibration.',
-      },
-      {
-        title: 'Advanced Unsupervised & Anomaly Analytics',
-        description: 'Clustering & anomaly detection nâng cao.',
-      },
-      {
-        title: 'Advanced AI Prediction Capstone',
-        description:
-          'Problem framing, optimization/explainability, deployment & pitch.',
+        label: 'Workshop nâng cao',
+        items: [
+          {
+            title: 'Advanced Data Pipeline & Feature Engineering',
+            description:
+              'Data validation, feature engineering nâng cao, time-series, pipeline tái lập.',
+          },
+          {
+            title: 'Advanced Supervised Learning & Model Optimization',
+            description:
+              'Dữ liệu mất cân bằng, hyperparameter tuning, ensemble nâng cao, calibration.',
+          },
+          {
+            title: 'Advanced Unsupervised & Anomaly Analytics',
+            description: 'Clustering & anomaly detection nâng cao.',
+          },
+          {
+            title: 'Advanced AI Prediction Capstone',
+            description:
+              'Problem framing, optimization/explainability, deployment & pitch.',
+          },
+        ],
       },
     ],
     output:
@@ -98,38 +119,49 @@ export const modules: ProgramModule[] = [
     title: 'ADVANCED MACHINE LEARNING & DEEP LEARNING',
     theory:
       'Lý thuyết (10 buổi): Đại số tuyến tính (vector, ma trận), covariance/PCA, đạo hàm & gradient, chain rule/loss/regularization, optimizer (GD, Adam), xác suất thống kê, sampling/CLT, Bayes, tích hợp thành Math Toolkit cho ML/DL.',
-    workshops: [
+    workshopGroups: [
       {
-        title: 'Data Representation & Linear Algebra',
-        description:
-          'Vector/similarity, ma trận, least squares/scaling, covariance, PCA.',
+        label: 'Workshop cơ bản',
+        items: [
+          {
+            title: 'Data Representation & Linear Algebra',
+            description:
+              'Vector/similarity, ma trận, least squares/scaling, covariance, PCA.',
+          },
+          {
+            title: 'Gradient, Loss & Optimization',
+            description:
+              'Đạo hàm/gradient, backprop, loss/regularization, optimizer, debugging.',
+          },
+          {
+            title: 'Probability, Statistics, Bayes & End-to-End Reasoning',
+            description:
+              'Phân phối xác suất, sampling/CLT, Bayes, math toolkit tổng hợp.',
+          },
+        ],
       },
       {
-        title: 'Gradient, Loss & Optimization',
-        description:
-          'Đạo hàm/gradient, backprop, loss/regularization, optimizer, debugging.',
-      },
-      {
-        title: 'Probability, Statistics, Bayes & End-to-End Reasoning',
-        description:
-          'Phân phối xác suất, sampling/CLT, Bayes, math toolkit tổng hợp.',
-      },
-      {
-        title: 'Advanced ML & Feature Engineering',
-        description: 'Feature engineering/ablation, model selection tin cậy.',
-      },
-      {
-        title: 'Advanced Ensemble Learning & XGBoost',
-        description: 'Bagging/RF, boosting, XGBoost, voting/stacking.',
-      },
-      {
-        title: 'Advanced Deep Learning with PyTorch, CV & Transformers',
-        description:
-          'NN from scratch, PyTorch, CV/transfer learning, NLP/Transformer.',
-      },
-      {
-        title: 'Capstone: Real-World AI Application',
-        description: 'Design review, build/evaluate, report/demo/defense.',
+        label: 'Workshop nâng cao',
+        items: [
+          {
+            title: 'Advanced ML & Feature Engineering',
+            description:
+              'Feature engineering/ablation, model selection tin cậy.',
+          },
+          {
+            title: 'Advanced Ensemble Learning & XGBoost',
+            description: 'Bagging/RF, boosting, XGBoost, voting/stacking.',
+          },
+          {
+            title: 'Advanced Deep Learning with PyTorch, CV & Transformers',
+            description:
+              'NN from scratch, PyTorch, CV/transfer learning, NLP/Transformer.',
+          },
+          {
+            title: 'Capstone: Real-World AI Application',
+            description: 'Design review, build/evaluate, report/demo/defense.',
+          },
+        ],
       },
     ],
     output:
@@ -143,39 +175,49 @@ export const modules: ProgramModule[] = [
     title: 'COMPUTER VISION, OPTIMIZATION & GPU ACCELERATION',
     theory:
       'Lý thuyết (10 buổi): Ảnh số/pixel, convolution 2D, vector hóa/dense layer, backprop/regularization, optimizer, classical CV & PCA, kiến trúc CNN, metrics/transfer learning, object detection & segmentation, GPU/CUDA/RAPIDS.',
-    workshops: [
+    workshopGroups: [
       {
-        title: 'CV, Convolution & Neural Network Foundations',
-        description:
-          'Pixel/color, convolution, edge detection, dense layer, loss/gradient.',
+        label: 'Workshop cơ bản',
+        items: [
+          {
+            title: 'CV, Convolution & Neural Network Foundations',
+            description:
+              'Pixel/color, convolution, edge detection, dense layer, loss/gradient.',
+          },
+          {
+            title: 'Optimization, Backprop & Classical CV',
+            description:
+              'Chain rule/backprop, gradient checking, optimizer battle, classical CV/PCA.',
+          },
+          {
+            title: 'CNN, Detection, Segmentation & GPU Foundations',
+            description:
+              'MLP vs CNN, metrics/transfer learning, detection/segmentation, GPU foundations.',
+          },
+        ],
       },
       {
-        title: 'Optimization, Backprop & Classical CV',
-        description:
-          'Chain rule/backprop, gradient checking, optimizer battle, classical CV/PCA.',
-      },
-      {
-        title: 'CNN, Detection, Segmentation & GPU Foundations',
-        description:
-          'MLP vs CNN, metrics/transfer learning, detection/segmentation, GPU foundations.',
-      },
-      {
-        title: 'Advanced CNN Training & Transfer Learning',
-        description:
-          'Kiến trúc nâng cao, optimizer/learning rate, augmentation, fine-tuning.',
-      },
-      {
-        title: 'Advanced Object Detection & Segmentation',
-        description:
-          'Dataset/annotation, YOLO/SSD, U-Net/Mask R-CNN, production design.',
-      },
-      {
-        title: 'Advanced GPU Acceleration & Deployment',
-        description: 'Profiling, CuPy/Numba, RAPIDS+TensorRT.',
-      },
-      {
-        title: 'Advanced CV Capstone',
-        description: 'Experiment/integration, deployment/demo/defense.',
+        label: 'Workshop nâng cao',
+        items: [
+          {
+            title: 'Advanced CNN Training & Transfer Learning',
+            description:
+              'Kiến trúc nâng cao, optimizer/learning rate, augmentation, fine-tuning.',
+          },
+          {
+            title: 'Advanced Object Detection & Segmentation',
+            description:
+              'Dataset/annotation, YOLO/SSD, U-Net/Mask R-CNN, production design.',
+          },
+          {
+            title: 'Advanced GPU Acceleration & Deployment',
+            description: 'Profiling, CuPy/Numba, RAPIDS+TensorRT.',
+          },
+          {
+            title: 'Advanced CV Capstone',
+            description: 'Experiment/integration, deployment/demo/defense.',
+          },
+        ],
       },
     ],
     output:
@@ -189,39 +231,50 @@ export const modules: ProgramModule[] = [
     title: 'GENERATIVE AI, LLMs & INTELLIGENT RAG SYSTEMS',
     theory:
       'Lý thuyết (10 buổi): NLP pipeline, biểu diễn văn bản (BoW/TF-IDF/embedding), sequence models (RNN/LSTM/GRU), seq2seq & đánh giá, Transformer/self-attention, BERT/GPT/T5 & API, prompt engineering & structured output, GenAI & Responsible AI, RAG & semantic search, conversational AI & memory.',
-    workshops: [
+    workshopGroups: [
       {
-        title: 'NLP, Text Representation & Sequence Foundations',
-        description:
-          'Use case/pipeline, BoW/TF-IDF/embedding, RNN/LSTM/GRU, seq2seq, evaluation.',
+        label: 'Workshop cơ bản',
+        items: [
+          {
+            title: 'NLP, Text Representation & Sequence Foundations',
+            description:
+              'Use case/pipeline, BoW/TF-IDF/embedding, RNN/LSTM/GRU, seq2seq, evaluation.',
+          },
+          {
+            title: 'Transformers, LLMs & GenAI Foundations',
+            description:
+              'Self-attention, BERT/GPT/T5 & API, prompt engineering, GenAI/Responsible AI.',
+          },
+          {
+            title: 'RAG, Conversational AI & Domain Assistant Foundations',
+            description:
+              'Semantic search, kiến trúc RAG, chẩn đoán lỗi RAG, conversational AI/memory.',
+          },
+        ],
       },
       {
-        title: 'Transformers, LLMs & GenAI Foundations',
-        description:
-          'Self-attention, BERT/GPT/T5 & API, prompt engineering, GenAI/Responsible AI.',
-      },
-      {
-        title: 'RAG, Conversational AI & Domain Assistant Foundations',
-        description:
-          'Semantic search, kiến trúc RAG, chẩn đoán lỗi RAG, conversational AI/memory.',
-      },
-      {
-        title: 'Advanced Generative AI & Prompt Systems',
-        description:
-          'Prompt chaining, structured generation, LLM evaluation, safety/adversarial testing.',
-      },
-      {
-        title: 'Advanced RAG Systems & Retrieval Optimization',
-        description: 'Chunking/index, hybrid search, reranking, RAG evaluation.',
-      },
-      {
-        title: 'Advanced Conversational Agents & Memory',
-        description:
-          'Memory architecture, tool-using agent, guardrails/telemetry.',
-      },
-      {
-        title: 'Advanced Domain Expert AI Capstone',
-        description: 'Tích hợp domain/agent, evaluation/demo/defense.',
+        label: 'Workshop nâng cao',
+        items: [
+          {
+            title: 'Advanced Generative AI & Prompt Systems',
+            description:
+              'Prompt chaining, structured generation, LLM evaluation, safety/adversarial testing.',
+          },
+          {
+            title: 'Advanced RAG Systems & Retrieval Optimization',
+            description:
+              'Chunking/index, hybrid search, reranking, RAG evaluation.',
+          },
+          {
+            title: 'Advanced Conversational Agents & Memory',
+            description:
+              'Memory architecture, tool-using agent, guardrails/telemetry.',
+          },
+          {
+            title: 'Advanced Domain Expert AI Capstone',
+            description: 'Tích hợp domain/agent, evaluation/demo/defense.',
+          },
+        ],
       },
     ],
     output:
@@ -235,40 +288,51 @@ export const modules: ProgramModule[] = [
     title: 'APPLIED AI PRODUCT STUDIO & CAPSTONE',
     theory:
       'Lý thuyết (10 buổi): Tư duy sản phẩm AI & yêu cầu capstone, design thinking/problem framing, kiến trúc giải pháp AI & tech stack, AI sandbox/vibe coding, MVP prototyping, logging/observability, AI UX & multimodal, guardrails/safety/testing, đo lường-tối ưu-storytelling, launch readiness & portfolio.',
-    workshops: [
+    workshopGroups: [
       {
-        title: 'AI Product Discovery, Architecture & Assisted Build Foundations',
-        description:
-          'Product mindset, problem framing, kiến trúc & tech stack, sandbox/vibe coding.',
+        label: 'Workshop cơ bản',
+        items: [
+          {
+            title:
+              'AI Product Discovery, Architecture & Assisted Build Foundations',
+            description:
+              'Product mindset, problem framing, kiến trúc & tech stack, sandbox/vibe coding.',
+          },
+          {
+            title: 'MVP, Observability, UX & Safety Foundations',
+            description:
+              'MVP/happy path, logging/observability, UX/UI, guardrails/testing.',
+          },
+          {
+            title: 'Evaluation, Optimization, Launch & Portfolio Foundations',
+            description:
+              'Metrics/evaluation, optimization, pitch deck, launch readiness/README.',
+          },
+        ],
       },
       {
-        title: 'MVP, Observability, UX & Safety Foundations',
-        description:
-          'MVP/happy path, logging/observability, UX/UI, guardrails/testing.',
-      },
-      {
-        title: 'Evaluation, Optimization, Launch & Portfolio Foundations',
-        description:
-          'Metrics/evaluation, optimization, pitch deck, launch readiness/README.',
-      },
-      {
-        title: 'Advanced AI Product Architecture & Orchestration',
-        description:
-          'Modular architecture, function routing, data lifecycle, scaling readiness.',
-      },
-      {
-        title: 'Advanced AI Quality, Safety & Optimization',
-        description:
-          'Golden test set, telemetry, safety red-team, quality gate.',
-      },
-      {
-        title: 'Advanced Launch, Product Operations & Portfolio',
-        description:
-          'Release/regression QA, product operations, technical handoff.',
-      },
-      {
-        title: 'Advanced Capstone Technical Defense & Reflection',
-        description: 'Demo/defense, post-mortem/reflection.',
+        label: 'Workshop nâng cao',
+        items: [
+          {
+            title: 'Advanced AI Product Architecture & Orchestration',
+            description:
+              'Modular architecture, function routing, data lifecycle, scaling readiness.',
+          },
+          {
+            title: 'Advanced AI Quality, Safety & Optimization',
+            description:
+              'Golden test set, telemetry, safety red-team, quality gate.',
+          },
+          {
+            title: 'Advanced Launch, Product Operations & Portfolio',
+            description:
+              'Release/regression QA, product operations, technical handoff.',
+          },
+          {
+            title: 'Advanced Capstone Technical Defense & Reflection',
+            description: 'Demo/defense, post-mortem/reflection.',
+          },
+        ],
       },
     ],
     output:

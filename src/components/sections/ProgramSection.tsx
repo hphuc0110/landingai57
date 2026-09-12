@@ -3,8 +3,11 @@ import Badge from '../ui/Badge'
 import Button from '../ui/Button'
 import Container from '../ui/Container'
 import ModuleCard from '../cards/ModuleCard'
+import { useRegistrationModal } from '../../context/RegistrationModalContext'
 
 export default function ProgramSection() {
+  const { openRegistration } = useRegistrationModal()
+
   return (
     <section
       id="lo-trinh"
@@ -28,7 +31,7 @@ export default function ProgramSection() {
 
         <div className="mt-8 flex justify-center sm:mt-10">
           <Button
-            href="#dang-ky"
+            onClick={openRegistration}
             variant="outline"
             className="!w-full !rounded-xl !border-2 !border-brand !px-5 !py-3.5 !text-sm sm:!w-auto sm:!px-8"
           >

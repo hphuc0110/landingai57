@@ -1,12 +1,27 @@
 import Button from '../ui/Button'
 import Container from '../ui/Container'
+import { useRegistrationModal } from '../../context/RegistrationModalContext'
 
 export default function HeroSection() {
+  const { openRegistration } = useRegistrationModal()
+
   return (
     <section
       id="top"
       className="relative overflow-hidden bg-white pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-14"
     >
+      {/* Mobile: faded map behind text */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 lg:hidden"
+      >
+        <img
+          src="/images/hero-map.png"
+          alt=""
+          className="hero-map-fade absolute left-1/2 top-1/2 h-auto w-[min(100%,420px)] -translate-x-1/2 -translate-y-1/2 object-contain opacity-30"
+        />
+      </div>
+
       <Container className="relative z-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-10 lg:min-h-[480px]">
         <div className="mx-auto w-full max-w-xl text-center lg:mx-0 lg:py-12 lg:text-left">
           <h1 className="text-[1.65rem] font-extrabold leading-tight text-brand sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
@@ -32,14 +47,15 @@ export default function HeroSection() {
             </p>
           </div>
           <Button
-            href="#dang-ky"
+            onClick={openRegistration}
             className="mt-7 !w-full !rounded-xl !px-7 !py-3.5 !text-sm sm:mt-8 sm:!w-auto"
           >
             Đăng ký giữ chỗ
           </Button>
         </div>
 
-        <div className="pointer-events-none relative mx-auto w-full max-w-[320px] sm:max-w-[320px] lg:max-w-[420px] lg:justify-self-end">
+        {/* Desktop: map beside text */}
+        <div className="pointer-events-none relative mx-auto hidden w-full max-w-[420px] lg:block lg:justify-self-end">
           <img
             src="/images/hero-map.png"
             alt=""

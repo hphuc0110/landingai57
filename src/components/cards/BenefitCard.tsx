@@ -21,7 +21,7 @@ export default function BenefitCard({
       </h3>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-text-body">{body}</p>
       <div className="mt-5 border-t border-slate-100 pt-3">
-        <p className="text-xs text-text-muted">{footer}</p>
+        <p className="text-xs font-semibold text-text-muted">{footer}</p>
       </div>
     </article>
   )

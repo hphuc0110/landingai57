@@ -7,24 +7,29 @@ import ProgramSection from './components/sections/ProgramSection'
 import OfferCountdownSection from './components/sections/OfferCountdownSection'
 import FAQSection from './components/sections/FAQSection'
 import RegistrationSection from './components/sections/RegistrationSection'
+import RegistrationModal from './components/registration/RegistrationModal'
+import { RegistrationModalProvider } from './context/RegistrationModalContext'
 
 function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-white">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <VisionBanner />
-        {/* <ExpertQuoteSection /> */}
-        <WhyChooseSection />
-        <ProgramSection />
-        <OfferCountdownSection />
-        {/* <ExpertsSection /> */}
-        <FAQSection />
-        <RegistrationSection />
-      </main>
-      <Footer />
-    </div>
+    <RegistrationModalProvider>
+      <div className="min-h-screen overflow-x-hidden bg-white">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <RegistrationSection />
+          <VisionBanner />
+          {/* <ExpertQuoteSection /> */}
+          <WhyChooseSection />
+          <ProgramSection />
+          <OfferCountdownSection />
+          {/* <ExpertsSection /> */}
+          <FAQSection />
+        </main>
+        <Footer />
+        <RegistrationModal />
+      </div>
+    </RegistrationModalProvider>
   )
 }
 

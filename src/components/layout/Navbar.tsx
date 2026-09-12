@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Button from '../ui/Button'
 import Container from '../ui/Container'
+import { useRegistrationModal } from '../../context/RegistrationModalContext'
 
 const navLinks = [
   { href: '#lo-trinh', label: 'Lộ trình học', active: true },
@@ -10,6 +11,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const { openRegistration } = useRegistrationModal()
 
   useEffect(() => {
     if (!open) return
@@ -56,14 +58,14 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <Button
-            href="#dang-ky"
             variant="outline"
+            onClick={openRegistration}
             className="hidden !px-4 !py-2 !text-xs lg:inline-flex"
           >
             Tư vấn miễn phí
           </Button>
           <Button
-            href="#dang-ky"
+            onClick={openRegistration}
             className="!px-3 !py-2 !text-[11px] sm:!px-4 sm:!text-xs"
           >
             Đăng ký giữ chỗ
@@ -93,13 +95,16 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#dang-ky"
-              onClick={closeMenu}
+            <button
+              type="button"
+              onClick={() => {
+                closeMenu()
+                openRegistration()
+              }}
               className="mt-2 inline-flex w-full items-center justify-center rounded-lg border border-[#c5d4f5] bg-white px-5 py-3 text-sm font-bold uppercase tracking-wide text-brand"
             >
               Tư vấn miễn phí
-            </a>
+            </button>
           </Container>
         </div>
       )}
