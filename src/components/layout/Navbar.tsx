@@ -59,13 +59,6 @@ export default function Navbar() {
         <div className="flex shrink-0 items-center gap-2">
           <div className="hidden items-center gap-2 md:flex">
             <div className="hidden lg:block">
-              <Button
-                variant="outline"
-                onClick={openRegistration}
-                className="!px-4 !py-2 !text-xs whitespace-nowrap"
-              >
-                Tư vấn miễn phí
-              </Button>
             </div>
             <Button
               onClick={openRegistration}

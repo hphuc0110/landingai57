@@ -1,11 +1,8 @@
 import { createPortal } from 'react-dom'
 import CtaButton from './CtaButton'
-import { useRegistrationModal } from '../context/RegistrationModalContext'
 
 export default function StickyRegisterBar() {
-  const { isOpen } = useRegistrationModal()
-
-  if (isOpen || typeof document === 'undefined') return null
+  if (typeof document === 'undefined') return null
 
   return createPortal(
     <div

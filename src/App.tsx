@@ -7,7 +7,6 @@ import ProgramSection from './components/sections/ProgramSection'
 import OfferCountdownSection from './components/sections/OfferCountdownSection'
 import FAQSection from './components/sections/FAQSection'
 import RegistrationSection from './components/sections/RegistrationSection'
-import RegistrationModal from './components/registration/RegistrationModal'
 import { RegistrationModalProvider } from './context/RegistrationModalContext'
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
           <FAQSection />
         </main>
         <Footer />
-        <RegistrationModal />
       </div>
     </RegistrationModalProvider>
   )

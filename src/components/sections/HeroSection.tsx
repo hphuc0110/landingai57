@@ -36,13 +36,12 @@ export default function HeroSection() {
             <p className="hidden sm:block">
               Với lộ trình 6 module xuyên suốt — từ Python, Machine Learning,
               Deep Learning, Computer Vision đến Generative AI/LLM — AI57 được
-              xây dựng với sự đồng hành của Đại học Bách Khoa Hà Nội và Trung
-              tâm Đổi mới sáng tạo Quốc gia (NIC), giúp học sinh nắm vững nền
+              xây dựng với đội ngũ chuyên gia giàu kinh nghiệm, giúp học sinh nắm vững nền
               tảng và tự tay xây sản phẩm AI hoàn chỉnh.
             </p>
             <p className="sm:hidden">
               Lộ trình 6 module từ Python đến Generative AI/LLM, đồng hành cùng
-              ĐH Bách Khoa Hà Nội và NIC — giúp học sinh tự tay xây sản phẩm AI
+              Đại học Bách Khoa Hà Nội và NIC — giúp học sinh tự tay xây sản phẩm AI
               hoàn chỉnh.
             </p>
           </div>

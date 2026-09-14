@@ -12,6 +12,9 @@
  *    VITE_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/...../exec
  * 6. Restart `npm run dev`
  *
+ * Lưu ý: Frontend gửi bằng fetch mode "no-cors" vì Web App của Google
+ * redirect trả HTML — browser không đọc được JSON response (dù sheet vẫn ghi đúng).
+ *
  * Khi chạy lần đầu, script tự tạo hàng tiêu đề nếu sheet trống.
  */
 

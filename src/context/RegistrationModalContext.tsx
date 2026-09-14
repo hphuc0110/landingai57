@@ -2,47 +2,30 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
-  useState,
   type ReactNode,
 } from 'react'
 
+const REGISTER_SECTION_ID = 'dang-ky'
+
 interface RegistrationModalContextValue {
-  isOpen: boolean
   openRegistration: () => void
-  closeRegistration: () => void
 }
 
 const RegistrationModalContext = createContext<RegistrationModalContextValue | null>(null)
 
 export function RegistrationModalProvider({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false)
+  const openRegistration = useCallback(() => {
+    const section = document.getElementById(REGISTER_SECTION_ID)
+    if (!section) return
 
-  const openRegistration = useCallback(() => setIsOpen(true), [])
-  const closeRegistration = useCallback(() => setIsOpen(false), [])
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
-  useEffect(() => {
-    if (!isOpen) return
-
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') closeRegistration()
-    }
-
-    window.addEventListener('keydown', onKeyDown)
-
-    return () => {
-      document.body.style.overflow = previousOverflow
-      window.removeEventListener('keydown', onKeyDown)
-    }
-  }, [isOpen, closeRegistration])
+    const firstField = section.querySelector<HTMLElement>('input, textarea, select')
+    window.setTimeout(() => firstField?.focus({ preventScroll: true }), 450)
+  }, [])
 
   return (
-    <RegistrationModalContext.Provider
-      value={{ isOpen, openRegistration, closeRegistration }}
-    >
+    <RegistrationModalContext.Provider value={{ openRegistration }}>
       {children}
     </RegistrationModalContext.Provider>
   )

@@ -47,8 +47,10 @@ export default function RegistrationFormPanel({
     setErrorMsg('')
 
     try {
-      const response = await fetch(SCRIPT_URL, {
+      // Apps Script redirects with HTML; no-cors still delivers the POST to the sheet.
+      await fetch(SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           intent,
@@ -60,25 +62,12 @@ export default function RegistrationFormPanel({
         }),
       })
 
-      const result = (await response.json()) as {
-        success?: boolean
-        message?: string
-      }
-
-      if (!response.ok || result.success === false) {
-        throw new Error(result.message || 'Gửi thất bại')
-      }
-
       setStatus('success')
       form.reset()
       onSuccess?.()
-    } catch (error) {
+    } catch {
       setStatus('error')
-      setErrorMsg(
-        error instanceof Error
-          ? error.message
-          : 'Không gửi được. Vui lòng thử lại hoặc gọi hotline.',
-      )
+      setErrorMsg('Không gửi được. Vui lòng thử lại hoặc gọi hotline.')
     }
   }
 

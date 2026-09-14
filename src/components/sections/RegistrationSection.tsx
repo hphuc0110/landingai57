@@ -4,7 +4,7 @@ import RegistrationFormPanel from '../registration/RegistrationFormPanel'
 
 export default function RegistrationSection() {
   return (
-    <section id="dang-ky" className="bg-[#f7f9fc] py-10 sm:py-16">
+    <section id="dang-ky" className="scroll-mt-16 bg-[#f7f9fc] py-10 sm:py-16 sm:scroll-mt-20">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <Badge className="!rounded-full">Ưu đãi & tiếp nhận hồ sơ</Badge>
@@ -22,7 +22,7 @@ export default function RegistrationSection() {
           </div>
 
           <aside className="order-2 space-y-4 sm:space-y-5 lg:order-1">
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            {/* <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
               <h3 className="text-base font-bold text-brand sm:text-lg">
                 Cam kết chất lượng AI Foundation
               </h3>
@@ -57,7 +57,7 @@ export default function RegistrationSection() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
 
             <div className="rounded-2xl bg-brand p-5 text-white sm:p-6">
               <p className="text-sm text-white/80">Cần trao đổi ngay?</p>

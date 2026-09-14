@@ -11,14 +11,13 @@ const linkCols = [
   },
   {
     title: 'Đơn vị triển khai',
-    items: ['ĐH Bách Khoa Hà Nội', 'Trung tâm Đổi mới Sáng tạo (NIC)', 'Hồng Lĩnh Education'],
+    items: ['Đại học Bách Khoa Hà Nội', 'Trung tâm Đổi mới Sáng tạo (NIC)', 'Hồng Lĩnh Education'],
   },
   {
     title: 'Liên hệ',
     items: [
       'Hotline: 099 696 3399',
-      'Email: contact@ai57.edu.vn',
-      'Địa chỉ: ĐH Bách Khoa Hà Nội',
+      'Địa chỉ: 1 Ngụy Như Kon Tum, Thanh Xuân, Hà Nội',
     ],
   },
 ]
@@ -37,8 +36,7 @@ export default function Footer() {
               />
             </a>
             <p className="mt-4 text-sm leading-relaxed text-white/85">
-              Chương trình đào tạo kỹ sư AI theo chuẩn thực hành, đồng hành cùng
-              ĐH Bách Khoa Hà Nội và NIC — giúp học sinh Việt bước vào cuộc đua
+              Chương trình đào tạo kỹ sư AI theo chuẩn thực hành giúp học sinh Việt bước vào cuộc đua
               AI toàn cầu.
             </p>
             <div className="mt-5 flex gap-3">

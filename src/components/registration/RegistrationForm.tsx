@@ -75,8 +75,10 @@ export default function RegistrationForm({ inModal = false }: { inModal?: boolea
     setErrorMsg('')
 
     try {
-      const response = await fetch(SCRIPT_URL, {
+      // Apps Script redirects with HTML; no-cors still delivers the POST to the sheet.
+      await fetch(SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           studentName,
@@ -88,20 +90,10 @@ export default function RegistrationForm({ inModal = false }: { inModal?: boolea
         }),
       })
 
-      const result = (await response.json()) as { success?: boolean; message?: string }
-
-      if (!response.ok || result.success === false) {
-        throw new Error(result.message || 'Gửi thất bại')
-      }
-
       navigate('/cam-on')
-    } catch (error) {
+    } catch {
       setStatus('error')
-      setErrorMsg(
-        error instanceof Error
-          ? error.message
-          : 'Không gửi được. Vui lòng thử lại sau hoặc liên hệ trực tiếp.',
-      )
+      setErrorMsg('Không gửi được. Vui lòng thử lại sau hoặc liên hệ trực tiếp.')
     }
   }
 

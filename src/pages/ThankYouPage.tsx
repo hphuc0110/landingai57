@@ -105,7 +105,7 @@ export default function ThankYouPage() {
         </Link>
 
         <div className="partners">
-          Chương trình hợp tác cùng <b>ĐH Bách Khoa Hà Nội</b> &nbsp;
+          Chương trình hợp tác cùng <b>Đại học Bách Khoa Hà Nội</b> &nbsp;
           <span className="dot">•</span>&nbsp; Lộ trình chuẩn <b>NVIDIA</b>
           <br />
           © 2026 AI57 — Hồng Lĩnh Education
